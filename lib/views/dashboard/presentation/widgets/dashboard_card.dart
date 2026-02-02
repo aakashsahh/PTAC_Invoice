@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ptac_invoice/core/extensions/context_extensions.dart';
 
 class DashboardCard extends StatelessWidget {
   final String iconUrl;
@@ -21,7 +22,7 @@ class DashboardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.colorScheme.surfaceContainerLowest,
       borderRadius: BorderRadius.circular(16),
       child: InkWell(
         onTap: onTap,
