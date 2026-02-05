@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ptac_invoice/core/constants/image_constants.dart';
 import 'package:ptac_invoice/core/extensions/context_extensions.dart';
 import 'package:ptac_invoice/core/router/app_router.dart';
 import 'package:ptac_invoice/shared/widgets/buttons.dart';
@@ -116,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
             shape: BoxShape.circle,
@@ -128,15 +129,16 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ],
           ),
-          child: Icon(
-            Icons.receipt_long,
-            size: 60,
-            color: context.colorScheme.primary,
+          child: Image.asset(
+            ImageConstants.ptacLogo,
+            width: 80,
+            height: 80,
+            fit: BoxFit.contain,
           ),
         ),
         const SizedBox(height: 16),
         Text(
-          'PTAC INVOICE',
+          'PTAC CLOUD ERP',
           style: context.headlineMedium?.copyWith(
             fontWeight: FontWeight.bold,
             color: context.colorScheme.primary,
@@ -154,13 +156,15 @@ class _LoginPageState extends State<LoginPage> {
           'Welcome Back',
           style: context.headlineSmall?.copyWith(
             fontWeight: FontWeight.w600,
-            color: const Color(0xFF1A1A1A),
+            color: context.colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 8),
         Text(
-          'Sign in to continue',
-          style: context.bodyMedium?.copyWith(color: Colors.grey.shade600),
+          'Sign In',
+          style: context.bodyLarge?.copyWith(
+            color: context.colorScheme.onSurfaceVariant,
+          ),
         ),
       ],
     );
@@ -252,7 +256,7 @@ class _LoginPageState extends State<LoginPage> {
             text: 'Sign In',
             onPress: isLoading ? null : _handleLogin,
             isLoading: isLoading,
-            color: context.colorScheme.primary,
+            color: const Color(0xFF6fede9),
             isFull: false,
           ),
         ],
